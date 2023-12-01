@@ -1,5 +1,5 @@
 (function () {
-  var zoom = document.getElementById("zoom"),
+  var zoom = document.querySelector("#zoom"),
     Zw = zoom.offsetWidth,
     Zh = zoom.offsetHeight,
     img = document.querySelector(".overlay-img");
@@ -21,9 +21,8 @@
 
   function onLoad() {
     ratio = "1";
-    // zoom.style.backgroundImage =
-    //   "url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg)";
-    console.log(zoom.style);
+    zoom.style.backgroundImage =
+      "url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg)";
     Ix = img.offsetLeft;
     Iy = img.offsetTop;
   }
@@ -34,8 +33,7 @@
       ratio = "1";
       Ix = img.offsetLeft;
       Iy = img.offsetTop;
-      zoom.style.backgroundPosition =
-      (Ix - x) * ratio + Zw / 2 + "px " + ((Iy - y) * ratio + Zh / 2) + "px";
+      zoom.style.backgroundPosition = (Ix - x) * ratio + Zw / 2 + "px " + ((Iy - y) * ratio + Zh / 2) + "px";
     }
     
     function onMousemove(e) {
@@ -50,6 +48,7 @@
           let xAxis= (window.innerWidth  - e.pageX*2)/100;
         let yAxis= (window.innerHeight  - e.pageY*2)/100;
         img.style.transform = 'perspective(1000px) rotateY(' + -xAxis + 'deg)' + 'rotateX(' + yAxis + 'deg)' ;
+        zoom.style.transform = 'perspective(1000px) rotateY(' + -xAxis + 'deg)' + 'rotateX(' + yAxis + 'deg)' ;
         text.style.transform = 'perspective(1000px) rotateY(' + -xAxis/2 + 'deg)' + 'rotateX(' + yAxis/2 + 'deg)' ;
         border.style.transform = 'perspective(1000px) rotateY(' + -xAxis/2 + 'deg)' + 'rotateX(' + yAxis/2 + 'deg)' ;
         });
