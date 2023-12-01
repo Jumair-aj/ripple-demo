@@ -35,7 +35,7 @@ main{
 .overlay-img{
 height:100%;
     padding:5rem;
-    /* background: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg) no-repeat center; */
+
     background-size: cover;
 }
 
@@ -64,7 +64,7 @@ height:100%;
     -webkit-transition: -webkit-filter 500ms;
     border-radius:5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    z-index:55
+    z-index:55;
 }
 
 #zoom {
@@ -83,6 +83,7 @@ height:100%;
     -webkit-transform: scale(0);
     -webkit-transition: opacity 500ms, -webkit-transform 500ms;
     pointer-events: none;
+    background-size:cover;
   }
   
   .active #zoom {

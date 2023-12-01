@@ -29,7 +29,7 @@
   }
   
   function updateMagnifier(x, y) {
-      zoom.style.top = y+80 + "px";
+      zoom.style.top = y+75 + "px";
       zoom.style.left = x+80 + "px";
       ratio = "1";
       Ix = img.offsetLeft;
