@@ -59,13 +59,12 @@ height:100%;
   
   .overlay-img {
     display: block;
-    margin: 20px auto;
     overflow:hidden;
     -webkit-transition: -webkit-filter 500ms;
     border-radius:5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     z-index:55;
-    background-size: 1120px 600px !important;
+    background-size: calc( 90vw - 20rem) calc(90vh - 2rem) !important;
 }
 
 #zoom {
@@ -84,7 +83,7 @@ height:100%;
     -webkit-transform: scale(0);
     -webkit-transition: opacity 500ms, -webkit-transform 500ms;
     pointer-events: none;
-    background-size: 1120px 600px !important;
+    background-size: calc( 90vw - 20rem) calc(90vh - 2rem) !important;
   }
   
   .active #zoom {

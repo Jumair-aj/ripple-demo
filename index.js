@@ -41,7 +41,7 @@
         activate();
         updateMagnifier(e.x, e.y);
         timeout = setTimeout(deactivate, 2500);
-        moveClouds()
+        // moveClouds()
 
         //hover effect
         bg.addEventListener("mousemove", (e)=>{
