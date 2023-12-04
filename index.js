@@ -41,12 +41,13 @@
         activate();
         updateMagnifier(e.x, e.y);
         timeout = setTimeout(deactivate, 2500);
-        // moveClouds()
+
+        moveClouds();
 
         //hover effect
         bg.addEventListener("mousemove", (e)=>{
-          let xAxis= (window.innerWidth  - e.pageX*2)/100;
-        let yAxis= (window.innerHeight  - e.pageY*2)/100;
+        let xAxis= (window.innerWidth  - e.pageX*2)/400;
+        let yAxis= (window.innerHeight  - e.pageY*2)/400;
         img.style.transform = 'perspective(1000px) rotateY(' + -xAxis + 'deg)' + 'rotateX(' + yAxis + 'deg)' ;
         zoom.style.transform = 'perspective(1000px) rotateY(' + -xAxis + 'deg)' + 'rotateX(' + yAxis + 'deg)' ;
         text.style.transform = 'perspective(1000px) rotateY(' + -xAxis/2 + 'deg)' + 'rotateX(' + yAxis/2 + 'deg)' ;
@@ -55,7 +56,7 @@
        
         bg.addEventListener("mouseenter", (e)=>{
         img.style.transition = "none";    
-        img.style.transition = "0.5s all ease";
+        img.style.transition = "0.2s all ease";
         
     });
     
@@ -98,6 +99,9 @@
          left = leftValue + "px";
        
        cloud.style.left = left;
+       if(i==5){
+        i=0
+       }
      }
 
    }
@@ -108,8 +112,8 @@
 })();
 
   $(".overlay-img").ripples({
-    resolution: 256,
-    perturbance: 0.01,
+    resolution: 1000,
+    perturbance: 0.001,
   });
 
 
@@ -124,3 +128,4 @@
   
   
   });
+
