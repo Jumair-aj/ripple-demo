@@ -7,7 +7,6 @@
     border = document.querySelector(".text-border");
     text = document.querySelector(".text");
 
-
   var timeout, ratio, Ix, Iy;
 
   function activate() {
@@ -41,7 +40,6 @@
         activate();
         updateMagnifier(e.x, e.y);
         timeout = setTimeout(deactivate, 2500);
-
         moveClouds();
 
         //hover effect
@@ -108,14 +106,12 @@
    }
   img.addEventListener("load", onLoad);
   img.addEventListener("mousemove", onMousemove);
-//   img.addEventListener("mouseenter", moveClouds);
-
   img.addEventListener("mouseleave", onMouseleave);
 })();
 
   $(".overlay-img").ripples({
     resolution: 1024,
-    dropRadius: 20,
+    // dropRadius: 20,
     perturbance: 0.004,
   });
 
