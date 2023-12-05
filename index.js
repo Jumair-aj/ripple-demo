@@ -40,7 +40,7 @@
         activate();
         updateMagnifier(e.x, e.y);
         timeout = setTimeout(deactivate, 2500);
-        moveClouds();
+        // moveClouds();
 
         //hover effect
         bg.addEventListener("mousemove", (e)=>{
@@ -80,7 +80,6 @@
        cloud.style.transitionTimingFunction = "ease-out";
        cloud.style.transitionDuration = "700ms";
        var top =  window.getComputedStyle(cloud, null).getPropertyValue("top");
-       
          topValue = parseInt(top);
          topValue = topValue - 20;
          top = topValue + "px";
@@ -96,7 +95,6 @@
            leftValue = leftValue + 30;
          }
          left = leftValue + "px";
-       
        cloud.style.left = left;
        if(i==5){
         i=0
