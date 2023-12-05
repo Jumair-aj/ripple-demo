@@ -110,20 +110,17 @@
   $(".overlay-img").ripples({
     resolution: 1024,
     // dropRadius: 20,
-    perturbance: 0.004,
+    perturbance: 0.04,
   });
 
 
    
 
   $(".overlay").click(function(){
-    // this.style.transition = '0.7s all ease-in-out';
-    // this.style.transform = 'scale(2)';
+
     this.style.animation = 'overlayAnimation 1s ease-in-out';
     setTimeout(function() { 
-        $('.overlay').fadeOut();}, 1000); 
-  
-  
+        $('.overlay').fadeOut();}, 1000);  
   });
 
 
