@@ -1,55 +1,51 @@
 (function () {
   var zoom = document.querySelector("#zoom"),
-  Zw = zoom.offsetWidth,
-  Zh = zoom.offsetHeight,
-  img = document.querySelector(".overlay-img");
-  bg = document.querySelector(".overlayBg");
-  border = document.querySelector(".text-border");
-  text = document.querySelector(".text");
-  zoom.style.opacity = 0
-  zoom.style.transition = '0.00001s ease-in-out' 
-  
-  
+    Zw = zoom.offsetWidth,
+    Zh = zoom.offsetHeight,
+    img = document.querySelector(".overlay-img");
+    bg = document.querySelector(".overlayBg");
+    border = document.querySelector(".text-border");
+    text = document.querySelector(".text");
+
+
   var timeout, ratio, Ix, Iy;
-  
+
   function activate() {
     document.body.classList.add("active");
   }
-  
+
   function deactivate() {
     document.body.classList.remove("active");
     img.classList.add("grey-scale");
   }
-  
+
   function onLoad() {
     ratio = "1";
     zoom.style.backgroundImage =
-    "url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg)";
+      "url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg)";
     Ix = img.offsetLeft;
     Iy = img.offsetTop;
   }
   
   function updateMagnifier(x, y) {
-    zoom.style.top = y+75 + "px";
-    zoom.style.left = x+80 + "px";
-    ratio = "1";
-    Ix = img.offsetLeft;
-    Iy = img.offsetTop;
-    zoom.style.backgroundPosition = (Ix - x) * ratio + Zw / 2 + "px " + ((Iy - y) * ratio + Zh / 2) + "px";
-  }
-  
-  function onMousemove(e) {
-    // zoom.style.display = 'block'
-    zoom.style.opacity = 1
-    clearTimeout(timeout);
-    activate();
-    updateMagnifier(e.x, e.y);
-    timeout = setTimeout(deactivate, 2500);
+      zoom.style.top = y+75 + "px";
+      zoom.style.left = x+80 + "px";
+      ratio = "1";
+      Ix = img.offsetLeft;
+      Iy = img.offsetTop;
+      zoom.style.backgroundPosition = (Ix - x) * ratio + Zw / 2 + "px " + ((Iy - y) * ratio + Zh / 2) + "px";
+    }
     
-    moveClouds();
-    
-    //hover effect
-    bg.addEventListener("mousemove", (e)=>{
+    function onMousemove(e) {
+        clearTimeout(timeout);
+        activate();
+        updateMagnifier(e.x, e.y);
+        timeout = setTimeout(deactivate, 2500);
+
+        moveClouds();
+
+        //hover effect
+        bg.addEventListener("mousemove", (e)=>{
         let xAxis= (window.innerWidth  - e.pageX*2)/400;
         let yAxis= (window.innerHeight  - e.pageY*2)/400;
         img.style.transform = 'perspective(1000px) rotateY(' + -xAxis + 'deg)' + 'rotateX(' + yAxis + 'deg)' ;
@@ -70,13 +66,12 @@
         border.style.transform = "rotateX(0deg) rotateY(0deg)";
         zoom.style.transform = "rotateX(0deg) rotateY(0deg)" ;
         text.style.transform = "rotateX(0deg) rotateY(0deg)";
-      });
-    }
-    
-    function onMouseleave() {
+    });
+  }
+  
+  function onMouseleave() {
       deactivate();
-      zoom.style.opacity = 0
-    }
+  }
   
   function moveClouds(){
     /* clouds 1 & 2 move to the left 
@@ -136,8 +131,5 @@
   
   
   });
-
-
-  // const btn = document.getElementsByClassName('overlay');
 
 
